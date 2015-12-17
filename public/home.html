@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="page-header">
+    <h1>Schemas</h1>
+  </div>
+  <ul>
+    <li ng-repeat="schema in schemas track by $index">
+      <a ui-sref="schema({ schema: schema })">
+        {{schema}}
+      </a>
+    </li>
+  </ul>
+</div>

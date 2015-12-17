@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Schemas</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/highlight-monokai-sublime.min.css">
+	<script src="/js/highlight.min.js"></script>
+	<script src="/js/highlight-yaml.min.js"></script>
+	<script src="/js/angular.min.js"></script>
+	<script src="/js/angular-ui-router.min.js"></script>
+	<script src="/js/angular-highlight.min.js"></script>
+	<script>
+		angular.module('app', ['ui.router', 'hljs'])
+		.config(function($stateProvider, $urlRouterProvider) {
+			$urlRouterProvider.otherwise("/");
+
+			$stateProvider
+				.state('home', {
+					url: '/',
+					templateUrl: '/home.html',
+					resolve: {
+						schemas: function($http) {
+							return $http.get('/schemas').then(function(response) {
+								return response.data;
+							});
+						}
+					},
+					controller: function($scope, schemas) {
+						$scope.schemas = schemas;
+					}
+				})
+				.state('schema', {
+					url: '/schemas/*schema',
+					templateUrl: '/schema.html',
+					resolve: {
+						schema: function($http, $stateParams) {
+							return $http.get('/schemas/yaml/' + unescape($stateParams.schema)).then(function(response) {
+								return response.data;
+							});
+						}
+					},
+					controller: function($scope, $stateParams, schema) {
+						$scope.schemaUrl = unescape($stateParams.schema);
+						$scope.schema = schema;
+					}
+				})
+		});
+	</script>
+</head>
+<body>
+	<div class="container" ui-view>
+	</div>
+</body>
+</html>
