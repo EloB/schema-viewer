@@ -1,13 +1,9 @@
 module.exports = function(grunt) {
-  grunt.loadNpmTasks('grunt-publish');
+  grunt.loadNpmTasks('grunt-release');
+
+  grunt.registerTask('default', ['release']);
 
   grunt.initConfig({
-    publish: {
-      main: {
-        src: [
-          '**/*'
-        ]
-      }
-    }
+    release: {}
   });
 };
