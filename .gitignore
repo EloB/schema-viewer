@@ -24,8 +24,7 @@ build/Release
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
-<<<<<<< 28edeebcfbb86896bd3f0f90f4aa93bcc17355b3
 node_modules
-=======
-node_modules
->>>>>>> Initial commit
+
+# OS X
+.DS_Store
