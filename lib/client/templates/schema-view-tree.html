@@ -1,0 +1,12 @@
+<div class="schema-view-row" ng-switch="schemaView.isIterator(value)" ng-init="level=level+1">
+  <div class="schema-view-name" ng-click="open=!open" ng-init="open=true">
+    <i class="glyphicon" ng-class="{'glyphicon-triangle-right': !open, 'glyphicon-triangle-bottom': open}" ng-if="schemaView.isIterator(value)"></i>
+    {{key}}:
+  </div>
+  <div ng-switch-when="true" ng-show="open">
+    <div ng-repeat="(key, value) in value" ng-include="schemaView.template"></div>
+  </div>
+  <div class="schema-view-value" ng-switch-default>
+    {{value}}
+  </div>
+</div>

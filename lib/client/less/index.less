@@ -1,0 +1,115 @@
+@import '~bootstrap/less/bootstrap.less';
+@import (inline) '~angular-resizable/src/angular-resizable.css';
+
+.flex(@a: 0; @b: 1; @c: auto) {
+  -webkit-flex: @arguments;
+  -ms-flex: @arguments;
+  flex: @arguments;
+}
+
+.flex-flow(@a: row; @b: nowrap) {
+  -webkit-flex-flow: @arguments;
+  -ms-flex-flow: @arguments;
+  flex-flow: @arguments;
+}
+
+html, body {
+  background: #f5f5f5;
+  height: 100%;
+  overflow: hidden;
+}
+
+.layout {
+  -webkit-box-flex: 1;
+  .flex(1);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  .flex-flow(row nowrap);
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-align-content: space-around;
+  -ms-flex-line-pack: distribute;
+  align-content: space-around;
+  height: 100%;
+}
+
+.search {
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  margin-top: @grid-gutter-width/2;
+  margin-bottom: @grid-gutter-width/2;
+  opacity: 0.25;
+  border-radius: 0;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.ui-section {
+  -webkit-box-flex: 1;
+  .flex(1);
+  height: 100%;
+}
+
+.sidebar {
+  background-color: #2f353f;
+  -webkit-box-flex: 0;
+  .flex(0, 0, 300px);
+  overflow: hidden;
+}
+
+.main {
+  padding-top: @grid-gutter-width/2;
+  padding-bottom: @grid-gutter-width/2;
+  overflow: auto;
+}
+
+.sidebar-list {
+
+}
+
+.sidebar-list-item {
+  padding: 5px @grid-gutter-width/2;
+  color: #b4b6bd;
+  display: block;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  &.active {
+    background: #272c35;
+  }
+}
+
+.rg-right {
+  margin-right: -7px;
+
+  span {
+    display: none;
+  }
+}
+
+.schema-view-name {
+  min-width: 90px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.schema-view-value {
+  display: inline;
+}
+
+.schema-view-row {
+  .schema-view-row {
+    margin-left: 20px;
+  }
+}
